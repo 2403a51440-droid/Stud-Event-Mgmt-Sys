@@ -1,0 +1,37 @@
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+}
+
+ul {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+li {
+    color: green;
+    margin: 5px 0;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: underline;
+}
