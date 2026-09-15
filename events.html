@@ -3,56 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Student Event Management System</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            background: #4f46e5;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #dbeafe;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(
+                rgba(79, 70, 229, 0.9),
+                rgba(99, 102, 241, 0.9)
+            );
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #4f46e5;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #e0e7ff;
+        }
+
+        /* Search */
+        .search-section {
+            text-align: center;
+            padding: 35px 20px 10px;
+        }
+
+        .search-section input {
+            width: 80%;
+            max-width: 600px;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        /* Events */
+        .events {
+            padding: 50px 7%;
+        }
+
+        .events h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 30px;
+        }
+
+        .event-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            height: 150px;
+            background: #6366f1;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-content h3 {
+            margin-bottom: 10px;
+            color: #4f46e5;
+        }
+
+        .event-content p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .register-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 11px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .register-btn:hover {
+            background: #3730a3;
+        }
+
+        /* About */
+        .about {
+            background: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 20px;
+            color: #4f46e5;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>CampusConnect</h1>
-        <p>Student Event Management System</p>
-    </header>
-
+    <!-- Navigation -->
     <nav>
-        <a href="events.html">Events</a>
+        <h1>🎓 Student Events</h1>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <section class="hero">
-        <h2>Upcoming College Events</h2>
-        <p>Explore exciting events happening on campus.</p>
-    </section>
 
-    <section class="events">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
 
-        <div class="event-card">
-            <h3>Tech Hackathon 2026</h3>
-            <p><strong>Date:</strong> 15 September 2026</p>
-            <p><strong>Time:</strong> 9:00 AM - 5:00 PM</p>
-            <p>Build innovative solutions and compete with other students.</p>
-            <button>View Event</button>
-        </div>
+        <h2>Student Event Management System</h2>
 
-        <div class="event-card">
-            <h3>AI & Technology Symposium</h3>
-            <p><strong>Date:</strong> 20 September 2026</p>
-            <p><strong>Time:</strong> 10:00 AM - 3:00 PM</p>
-            <p>Learn about Artificial Intelligence and emerging technologies.</p>
-            <button>View Event</button>
-        </div>
+        <p>
+            Discover, register and participate in exciting college events.
+        </p>
 
-        <div class="event-card">
-            <h3>Cultural Fest</h3>
-            <p><strong>Date:</strong> 25 September 2026</p>
-            <p><strong>Time:</strong> 4:00 PM - 8:00 PM</p>
-            <p>Enjoy music, dance, art and cultural performances.</p>
-            <button>View Event</button>
-        </div>
+        <a href="#events" class="btn">
+            Explore Events
+        </a>
 
     </section>
 
+
+    <!-- Search -->
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for an event..."
+            onkeyup="searchEvents()"
+        >
+
+    </section>
+
+
+    <!-- Events -->
+    <section class="events" id="events">
+
+        <h2>Upcoming Events</h2>
+
+        <div class="event-container" id="eventContainer">
+
+            <!-- Event 1 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    TECH FEST
+                </div>
+
+                <div class="event-content">
+
+                    <h3>Tech Fest 2026</h3>
+
+                    <p>📅 20 September 2026</p>
+
+                    <p>📍 Main Auditorium</p>
+
+                    <p>
+                        A technical festival featuring coding,
+                        robotics and innovation competitions.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="registerEvent('Tech Fest 2026')">
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 2 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    CULTURAL
+                </div>
+
+                <div class="event-content">
+
+                    <h3>Cultural Fest</h3>
+
+                    <p>📅 25 September 2026</p>
+
+                    <p>📍 College Ground</p>
+
+                    <p>
+                        Enjoy music, dance, drama and
+                        cultural performances.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="registerEvent('Cultural Fest')">
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 3 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    SPORTS
+                </div>
+
+                <div class="event-content">
+
+                    <h3>Annual Sports Meet</h3>
+
+                    <p>📅 2 October 2026</p>
+
+                    <p>📍 Sports Ground</p>
+
+                    <p>
+                        Participate in cricket, football,
+                        volleyball and athletics.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="registerEvent('Annual Sports Meet')">
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 4 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    HACKATHON
+                </div>
+
+                <div class="event-content">
+
+                    <h3>College Hackathon</h3>
+
+                    <p>📅 10 October 2026</p>
+
+                    <p>📍 Computer Lab</p>
+
+                    <p>
+                        Build innovative software solutions
+                        and compete with other students.
+                    </p>
+
+                    <button
+                        class="register-btn"
+                        onclick="registerEvent('College Hackathon')">
+                        Register Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <h2>About Our System</h2>
+
+        <p>
+            The Student Event Management System helps students
+            discover upcoming college events, view event details,
+            and register for events easily. Administrators can
+            manage events, participants and registrations from
+            one centralized system.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📧 Email: events@college.edu</p>
+
+        <p>📞 Phone: +91 98765 43210</p>
+
+    </section>
+
+
+    <!-- Footer -->
     <footer>
-        <p>© 2026 CampusConnect | Student Event Management System</p>
+
+        <p>
+            © 2026 Student Event Management System
+        </p>
+
     </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function registerEvent(eventName) {
+
+            alert(
+                "Registration successful for " +
+                eventName +
+                "!"
+            );
+
+        }
+
+
+        function searchEvents() {
+
+            let input =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            let cards =
+                document.querySelectorAll(".event-card");
+
+            cards.forEach(function(card) {
+
+                let eventName =
+                    card.querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+                if (eventName.includes(input)) {
+
+                    card.style.display = "block";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
 
 </body>
 </html>
